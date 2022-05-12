@@ -543,7 +543,7 @@
     .res-register-btn{
         display: flex !important;
         flex-direction: row-reverse !important;
-        width:350px !important:
+         width: 350px !important;
     }
         
 }
