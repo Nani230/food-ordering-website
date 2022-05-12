@@ -189,7 +189,7 @@
         font-size: 17px;
     }
     .reg-btns {
-        width: 250px;
+        width: 350px !important;
     }
 
     /* css for registration */
