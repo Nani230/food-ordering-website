@@ -106,7 +106,7 @@ function Registration() {
                                     }}
                                 />
                             </div>
-                            <div className="reg-btns">
+                            <div className="reg-btns res-register-btn">
                                 <button
                                     onClick={register}
                                     className="reg-signup-btn reg-signup2 regs-signup-btn"
