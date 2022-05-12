@@ -114,7 +114,7 @@ function Restaurentregister() {
                         />
                     </div>
 
-                    <div className="reg-btns res-reg-btns">
+                    <div className="reg-btns res-reg-btns res-register-btn">
                         <button
                             onClick={register}
                             className="reg-signup-btn regs-signup-btn"
