@@ -542,7 +542,7 @@
     }
     .res-register-btn{
         display: flex !important;
-        flex-direction: row-reverse;
+        flex-direction: row-reverse !important;
     }
         
 }
