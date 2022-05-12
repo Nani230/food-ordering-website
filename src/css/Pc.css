@@ -540,4 +540,9 @@
         display: flex !important;
         justify-content: space-between !important;
     }
+    .res-register-btn{
+        display: flex !important;
+        flex-direction: row-reverse;
+
+        
 }
