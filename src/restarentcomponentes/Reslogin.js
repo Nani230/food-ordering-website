@@ -78,9 +78,9 @@ function Reslogin() {
                                 }}
                             />
 
-                            <div className="reg-btns">
-                                <Link to={'/resturentregister'}>
-                                    <button className="reg-sign-btn">
+                            <div className="reg-btns login-btns">
+                                <Link to={'/resturentregister '}>
+                                    <button className="reg-sign-btn ">
                                         Register
                                     </button>
                                 </Link>
