@@ -374,7 +374,10 @@ function Restaurantmain() {
                         </button>
                         <button
                             onClick={() => {
-                                submit();
+                                 setTimeout(() => {
+                      submit();
+                    }, 1500);
+                                
                                 refreshPage();
                             }}
                             className="reg-signup-btn update-sub-btn"
