@@ -70,7 +70,9 @@ function Cart() {
     };
     // function to refreshPage
     function refreshPage() {
-        window.location.reload(false);
+        setTimeout(function () {
+            window.location.reload(false);
+        }, 1000);
     }
     // function to fech particular restarent food items
     function statetrue(id, resid) {
