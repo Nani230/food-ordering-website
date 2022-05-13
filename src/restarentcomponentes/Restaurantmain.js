@@ -56,12 +56,11 @@ function Restaurantmain() {
     
     
     // function to refreshPage
-    setTimeout(
-        
-        function refreshPage() {
-        window.location.reload(false);
-    }, 5000); 
-
+   function refreshPage() {
+        setTimeout(function () {
+            window.location.reload(false);
+        }, 1000);
+    }
     
     function statetrue(id, data) {
         setsate(true);
