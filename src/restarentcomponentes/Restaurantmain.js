@@ -59,7 +59,7 @@ function Restaurantmain() {
    function refreshPage() {
         setTimeout(function () {
             window.location.reload(false);
-        }, 10000);
+        }, 5000);
     }
     
     function statetrue(id, data) {
