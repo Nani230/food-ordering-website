@@ -53,10 +53,16 @@ function Restaurantmain() {
                 sethotal(data);
             });
     }, []);
+    
+    
     // function to refreshPage
-    function refreshPage() {
+    setTimeout(
+        
+        function refreshPage() {
         window.location.reload(false);
-    }
+    }, 5000); 
+
+    
     function statetrue(id, data) {
         setsate(true);
         setid(id);
