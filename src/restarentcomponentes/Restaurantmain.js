@@ -443,7 +443,7 @@ function Restaurantmain() {
                         <button
                             onClick={() => {
                                 additem();
-                                refreshPage();
+//                                 refreshPage();
                             }}
                             className="reg-signup-btn update-sub-btn"
                         >
