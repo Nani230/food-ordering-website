@@ -128,8 +128,10 @@ function Userfoodlist() {
         users[pro] = value;
     }
     // function to refreshPage
-    function refreshPage() {
-        window.location.reload(false);
+   function refreshPage() {
+        setTimeout(function () {
+            window.location.reload(false);
+        }, 1000);
     }
     //  this for geting addres from user
     let addresuser = {};
