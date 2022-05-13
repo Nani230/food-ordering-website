@@ -65,7 +65,7 @@
     }
     .index-display {
         display: flex;
-        flex-direction: column;
+        flex-direction: column !important; 
         align-items: center;
     }
 
@@ -189,7 +189,7 @@
     }
     .add-title {
         width: 250px;
-        margin-left: 15%;
+        margin-left: 20%;
     }
     .restaurent-user-display {
         width: 100%;
