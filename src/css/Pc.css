@@ -73,7 +73,7 @@
     }
 
     .poster {
-        width: 93%;
+        width: 97% !important;
     }
     /* css for sliders */
     .wrong-btn {
