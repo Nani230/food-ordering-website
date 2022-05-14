@@ -5,6 +5,10 @@ function Restaurentregister() {
     // collecting data from user
     // let users = {};
     let users = new FormData();
+    
+//     usestes
+        let [box, setbox] = useState(false);
+
 
     // console.log(users);
 
@@ -27,6 +31,14 @@ function Restaurentregister() {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
+             if (data.success === true) {
+                        setmessage(data.message);
+                        setbox(true);
+
+                        setTimeout(() => {
+                            setbox(false);
+                        }, 1000);
+                    }
             })
             .catch((err) => console.log(err));
     }
@@ -132,6 +144,9 @@ function Restaurentregister() {
                     alt=""
                 />
             </div>
+             {box === true ? (
+                <div className="login-toast-message">{message}</div>
+            ) : null}
         </div>
     );
 }
