@@ -10,7 +10,7 @@
         height: 400px;
     }
     .userfood-res-title {
-        font-size:"25px"';
+        font-size:"25px" !important;
     }
     .food-main-container{
         padding-left: 20px !important;
