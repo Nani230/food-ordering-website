@@ -270,7 +270,7 @@
         margin-right: 0px;
     }
     .res-user-display-side > h1 {
-        font-size: 20px;
+        font-size: 20px !important ;
         margin-left: 10px;
     }
     .res-user-display-side > p {
