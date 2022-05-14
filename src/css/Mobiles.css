@@ -9,6 +9,9 @@
         width: 100%;
         height: 400px;
     }
+    .userfood-res-title {
+        font-size:"25px"';
+    }
     .food-main-container{
         padding-left: 20px !important;
         padding-right: 0px !important;
