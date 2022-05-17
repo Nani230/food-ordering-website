@@ -342,7 +342,7 @@ function Resorders() {
                                         </span> */}
                                             </div>
                                         ) : (
-                                            <div className="order-font-icons">
+                                            <div className="order-font-icons items-order-details">
                                                 <span
                                                     onClick={() => {
                                                         statetrue(data._id);
