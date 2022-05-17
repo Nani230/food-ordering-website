@@ -234,7 +234,7 @@ function Resorders() {
                                 </div>
                                 <div className="all-orders-container">
                                     <div className="item-container">
-                                        <div className="items-details orders-items-details">
+                                        <div className="items-details items-order-details orders-items-details">
                                             <p>
                                                 Name : {data.foodItem.itemname}
                                             </p>
@@ -247,7 +247,7 @@ function Resorders() {
                                             </p>
                                         </div>
                                     </div>
-                                    <p className="item-quan">
+                                    <p className="item-quan items-order-details">
                                         Quantity : {data.quantity}
                                     </p>
 
@@ -364,12 +364,15 @@ function Resorders() {
                                             </div>
                                         )}
                                     </div>
-                                    <div className="user-addres">
+                                      <div className="user-addres">
+                                        <p>Name : {data.customer.name}</p>
                                         <p>
                                             Mobile : {data.customer.ordermobile}
                                         </p>
-                                        <p>Addres : {data.customer.addres}</p>
-                                    </div>
+                                      </div>
+                                    <p className="user-addres">
+                                        Addres : {data.customer.addres}
+                                    </p>
                                 </div>
                             </div>
                         </div>
