@@ -1383,6 +1383,12 @@
     border: 1px solid green;
     font-weight: bold;
 }
+.items-order-details > p {
+    margin-top: 0px !important;
+}
+.items-order-details {
+    margin-top: 10px !important;
+}
 .main-time {
     display: flex;
     justify-content: space-between;
