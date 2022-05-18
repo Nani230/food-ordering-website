@@ -41,7 +41,7 @@
     .index-navbar-btns {
         display: none;
     }
-    ..food-main-container{
+    .food-main-container{
        padding-left: 10px !important; 
        padding-right: 0px !important;
     }
