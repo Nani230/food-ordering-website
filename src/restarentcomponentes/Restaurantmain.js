@@ -1,67 +1,71 @@
-import { baseURL } from '../App';
-import { useEffect, useRef, useState } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
-import { FaTrash } from 'react-icons/fa';
-import { FaPen } from 'react-icons/fa';
-import { MdClose, MdCall, MdLocationOn } from 'react-icons/md';
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
-import { GrMail } from 'react-icons/gr';
+import { useEffect, useRef, useState } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
+import { FaPen } from "react-icons/fa";
+import { MdClose, MdCall, MdLocationOn } from "react-icons/md";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { GrMail } from "react-icons/gr";
 function Restaurantmain() {
     // useParams
     let prams = useRef(useParams());
     // localStorage
-    let data = JSON.parse(localStorage.getItem('details'));
+    let data = JSON.parse(localStorage.getItem("details"));
     // useStates
     let [state, setsate] = useState(false);
     let [addstate, setaddstate] = useState(false);
     let [cart, setcart] = useState([]);
     let [hotel, sethotal] = useState([]);
-    let [id, setid] = useState('null');
+    let [id, setid] = useState("null");
     let [states, setstates] = useState(false);
-
+    let [name, username] = useState("");
     let [datas, setdata] = useState([]);
-    let [message, setmessage] = useState('');
+    let [message, setmessage] = useState("");
     let [box, setbox] = useState(false);
     let navigate = useNavigate();
     // logout function
     function logout() {
-        localStorage.removeItem('details');
-        navigate('/resturentindex');
+        localStorage.removeItem("details");
+        navigate("/resturentindex");
     }
     // useEffect to fech restaurant and restaurantitems
     useEffect(() => {
-        let token = JSON.parse(localStorage.getItem('details'));
+        let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
-        fetch(`${baseURL}/restaurantuser/items/${prams.current.id}`, {
-            method: 'GET',
-            headers: {
-                Authorization: `Bearer ${realtoken}`,
-            },
-        })
+        fetch(
+            `http://localhost:8000/restaurantuser/items/${prams.current.id}`,
+            {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${realtoken}`,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
                 setcart(data);
             });
 
-        fetch(`${baseURL}/restaurantuser/allresturent/${prams.current.id}`, {
-            method: 'GET',
-        })
+        fetch(
+            `http://localhost:8000/restaurantuser/allresturent/${prams.current.id}`,
+            {
+                method: "GET",
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 sethotal(data);
+                username(data[0].restaurantname);
             });
     }, []);
-    
-    
     // function to refreshPage
-   function refreshPage() {
+    function refreshPage() {
         setTimeout(function () {
             window.location.reload(false);
-        }, 5000);
+        }, 1000);
     }
-    
+
     function statetrue(id, data) {
         setsate(true);
         setid(id);
@@ -77,30 +81,31 @@ function Restaurantmain() {
     function addstatefalse() {
         setaddstate(false);
     }
+
     // internal css
     let style = {
-        width: '70%',
-        height: '100vh',
-        color: '#fff',
+        width: "70%",
+        height: "100vh",
+        color: "#fff",
         lineHeight: 10,
-        backgroundColor: '#fff',
-        marginLeft: '0px',
+        backgroundColor: "#fff",
+        marginLeft: "0px",
         // display: "none",
 
-        transition: '0.50s',
+        transition: "0.50s",
     };
     let styles = {
-        width: '50%',
-        height: '100vh',
-        color: '#fff',
+        width: "50%",
+        height: "100vh",
+        color: "#fff",
         lineHeight: 10,
-        padding: '1.5em',
-        backgroundColor: '#fff',
-        marginLeft: '-1400px',
-        transition: '0.50s',
+        padding: "1.5em",
+        backgroundColor: "#fff",
+        marginLeft: "-1400px",
+        transition: "0.50s",
     };
     let border = {
-        border: '1px solid #e1e1e1',
+        border: "1px solid #e1e1e1",
     };
 
     // collecting item data from user
@@ -113,11 +118,11 @@ function Restaurantmain() {
     }
     // function to update items
     function submit() {
-        let token = JSON.parse(localStorage.getItem('details'));
+        let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
 
-        fetch(`${baseURL}/restaurantuser/items/${id}`, {
-            method: 'PUT',
+        fetch(`http://localhost:8000/restaurantuser/items/${id}`, {
+            method: "PUT",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
             },
@@ -133,7 +138,7 @@ function Restaurantmain() {
                         setbox(false);
                     }, 1500);
                 } else {
-                    console.log('nothinf');
+                    console.log("nothinf");
                 }
             })
             .catch((err) => console.log(err));
@@ -141,12 +146,12 @@ function Restaurantmain() {
 
     // function to create item
     function additem() {
-        console.log('Hello working fine!');
-        console.log(users.get('image'));
-        let token = JSON.parse(localStorage.getItem('details'));
+        console.log("Hello working fine!");
+        console.log(users.get("image"));
+        let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
-        fetch(`${baseURL}/restaurantuser/createItem`, {
-            method: 'POST',
+        fetch(`http://localhost:8000/restaurantuser/createItem`, {
+            method: "POST",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
             },
@@ -162,7 +167,7 @@ function Restaurantmain() {
                         setbox(false);
                     }, 1500);
                 } else {
-                    console.log('nothinf');
+                    console.log("nothinf");
                 }
             })
             .catch((err) => console.log(err));
@@ -170,11 +175,11 @@ function Restaurantmain() {
 
     // function to delete food item
     function deletedata(id, index) {
-        let token = JSON.parse(localStorage.getItem('details'));
+        let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
 
-        fetch(`${baseURL}/restaurantuser/items/${id}`, {
-            method: 'DELETE',
+        fetch(`http://localhost:8000/restaurantuser/items/${id}`, {
+            method: "DELETE",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
             },
@@ -194,12 +199,12 @@ function Restaurantmain() {
                         setbox(false);
                     }, 1500);
                 } else {
-                    console.log('nothinf');
+                    console.log("nothinf");
                 }
             })
             .catch((err) => console.log(err));
     }
-
+    console.log(name + "nani");
     return (
         <div className="restauret-main">
             <div className="restarent-navbar">
@@ -227,14 +232,20 @@ function Restaurantmain() {
                     {states === true ? (
                         <div className="slider" style={style}>
                             <div className="resindex-btns">
-                                <Link to={'/restaurentorders/' + data.id}>
+                                <button className="res-btn-login">
+                                    <span className="main-title-name">
+                                        Hello , {name}
+                                    </span>
+                                </button>
+                                <hr style={border} />
+                                <Link to={"/restaurentorders/" + data.id}>
                                     <button className="res-btn-login">
                                         orders
                                     </button>
                                     <hr style={border} />
                                 </Link>
 
-                                <Link to={'/resturentregister'}>
+                                <Link to={"/resturentregister"}>
                                     <button
                                         onClick={logout}
                                         className="res-btn-signup"
@@ -253,7 +264,7 @@ function Restaurantmain() {
                             >
                                 X
                             </span>
-                            <Link to={'/restaurentorders/' + data.id}>
+                            <Link to={"/restaurentorders/" + data.id}>
                                 <button className="res-btn-login">
                                     Orders
                                 </button>
@@ -267,13 +278,16 @@ function Restaurantmain() {
                 </div>
                 {hotel.map((data, index) => {
                     return (
-                        <h2 key={index} className="navbar-title">
-                            Welcome {data.username}
+                        <h2
+                            key={index}
+                            className="main-title-name mains-title-name"
+                        >
+                            Hello,{data.username}
                         </h2>
                     );
                 })}
                 <div className="res-navbar-details">
-                    <Link to={'/restaurentorders/' + data.id}>
+                    <Link to={"/restaurentorders/" + data.id}>
                         <button className="user-navbar-btn res-btn">
                             Orders
                         </button>
@@ -306,7 +320,7 @@ function Restaurantmain() {
                             <div>
                                 <img
                                     className="res-poster-url"
-                                    src={`${baseURL}/restaurantuser/resImage/${data.posterurl}`}
+                                    src={`http://localhost:8000/restaurantuser/resImage/${data.posterurl}`}
                                     alt=""
                                 />
                             </div>
@@ -330,7 +344,7 @@ function Restaurantmain() {
                             defaultValue={datas.itemname}
                             placeholder="updata name"
                             onChange={(event) => {
-                                readvalue('itemname', event.target.value);
+                                readvalue("itemname", event.target.value);
                             }}
                         />
                         <input
@@ -339,7 +353,7 @@ function Restaurantmain() {
                             type="number"
                             placeholder="updata prize"
                             onChange={(event) => {
-                                readvalue('price', event.target.value);
+                                readvalue("price", event.target.value);
                             }}
                         />
                         <input
@@ -348,7 +362,7 @@ function Restaurantmain() {
                             defaultValue={datas.quantity}
                             placeholder="updata quantity"
                             onChange={(event) => {
-                                readvalue('quantity', event.target.value);
+                                readvalue("quantity", event.target.value);
                             }}
                         />
                         <input
@@ -357,7 +371,7 @@ function Restaurantmain() {
                             type="text"
                             placeholder="updata description"
                             onChange={(event) => {
-                                readvalue('description', event.target.value);
+                                readvalue("description", event.target.value);
                             }}
                         />
 
@@ -366,7 +380,7 @@ function Restaurantmain() {
                             type="file"
                             placeholder="Add img url"
                             onChange={(event) => {
-                                readvalue('image', event.target.files[0]);
+                                readvalue("image", event.target.files[0]);
                             }}
                         />
                     </div>
@@ -379,10 +393,7 @@ function Restaurantmain() {
                         </button>
                         <button
                             onClick={() => {
-                                 setTimeout(() => {
-                      submit();
-                    }, 1500);
-                                
+                                submit();
                                 refreshPage();
                             }}
                             className="reg-signup-btn update-sub-btn"
@@ -402,7 +413,7 @@ function Restaurantmain() {
                             type="text"
                             placeholder="Add name"
                             onChange={(event) => {
-                                readvalue('itemname', event.target.value);
+                                readvalue("itemname", event.target.value);
                             }}
                         />
                         <input
@@ -410,7 +421,7 @@ function Restaurantmain() {
                             type="number"
                             placeholder="Add prize"
                             onChange={(event) => {
-                                readvalue('price', event.target.value);
+                                readvalue("price", event.target.value);
                             }}
                         />
                         <input
@@ -418,7 +429,7 @@ function Restaurantmain() {
                             type="number"
                             placeholder="Add quantity"
                             onChange={(event) => {
-                                readvalue('quantity', event.target.value);
+                                readvalue("quantity", event.target.value);
                             }}
                         />
                         <input
@@ -426,7 +437,7 @@ function Restaurantmain() {
                             type="text"
                             placeholder="Add description"
                             onChange={(event) => {
-                                readvalue('description', event.target.value);
+                                readvalue("description", event.target.value);
                             }}
                         />
 
@@ -435,11 +446,11 @@ function Restaurantmain() {
                             type="file"
                             placeholder="Add img url"
                             onChange={(event) => {
-                                readvalue('image', event.target.files[0]);
+                                readvalue("image", event.target.files[0]);
                             }}
                         />
 
-                        {readvalue('restaurant', prams.current.id)}
+                        {readvalue("restaurant", prams.current.id)}
                     </div>
                     <div className="reg-btnss ">
                         <button
@@ -467,11 +478,14 @@ function Restaurantmain() {
                 <div className="food-main-container  ">
                     {cart.map((data, index) => {
                         return (
-                            <div className="hotal-main" key={index}>
+                            <div
+                                className="hotal-main user-hotal-main"
+                                key={index}
+                            >
                                 <div>
                                     <img
                                         className="poster"
-                                        src={`${baseURL}/restaurantuser/foodImage/${data.posterurl}`}
+                                        src={`http://localhost:8000/restaurantuser/foodImage/${data.posterurl}`}
                                         alt=""
                                     />
                                 </div>
@@ -484,7 +498,7 @@ function Restaurantmain() {
 
                                 <p
                                     style={{
-                                        fontWeight: 'bold',
+                                        fontWeight: "bold",
                                     }}
                                     className="item-des"
                                 >
@@ -493,10 +507,10 @@ function Restaurantmain() {
                                 <p
                                     className="left-title"
                                     style={{
-                                        fontWeight: 'bold',
-                                        marginLeft: '25px',
-                                        marginTop: '0px',
-                                        paddingBottom: '10px',
+                                        fontWeight: "bold",
+                                        marginLeft: "25px",
+                                        marginTop: "0px",
+                                        paddingBottom: "10px",
                                     }}
                                 >
                                     food Left : {data.quantity}
