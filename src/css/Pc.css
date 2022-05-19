@@ -73,7 +73,7 @@
     }
 
     .poster {
-        width: 97% !important;
+        width: 93% !important;
     }
     /* css for sliders */
     .wrong-btn {
@@ -144,7 +144,7 @@
     }
     .res-cards {
         width: 100%;
-       
+
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -187,9 +187,6 @@
     }
     .res-card > h5 {
         font-size: 17px;
-    }
-    .reg-btns {
-        width: 350px !important;
     }
 
     /* css for registration */
@@ -292,7 +289,6 @@
     }
     .add-title {
         width: 250px;
-        
     }
     .restaurent-user-display {
         width: 100%;
@@ -531,7 +527,7 @@
         padding-left: 0px !important;
     }
     .reg-btns {
-        width: 100% !important;
+        width: 350px !important;
         display: flex !important;
         justify-content: space-between !important;
     }
@@ -540,10 +536,9 @@
         display: flex !important;
         justify-content: space-between !important;
     }
-    .res-register-btn{
+    .res-register-btn {
         display: flex !important;
         flex-direction: row-reverse !important;
-         width: 350px !important;
+        width: 350px !important;
     }
-        
 }

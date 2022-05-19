@@ -10,9 +10,9 @@
         height: 400px;
     }
     .userfood-res-title {
-        font-size:"25px" !important;
+        font-size: "25px" !important;
     }
-    .food-main-container{
+    .food-main-container {
         padding-left: 20px !important;
         padding-right: 0px !important;
     }
@@ -296,7 +296,6 @@
         height: 450px;
     }
     .add-title {
- 
         margin-left: 150px;
     }
     .restaurent-user-display {
@@ -642,5 +641,9 @@
         left: 12%;
         top: 0%;
         background-color: #fff;
+    }
+    .res-reg-img {
+        display: block;
+        margin-left: 0px !important;
     }
 }
