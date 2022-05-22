@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { baseURL } from "../App";
 
 function Restaurentregister() {
     // collecting data from user
@@ -20,7 +21,7 @@ function Restaurentregister() {
         console.log(" fine!");
         console.log(users.get("image"));
 
-        fetch(`http://localhost:8000/restaurantuser/register`, {
+        fetch(`${baseURL}/restaurantuser/register`, {
             method: "POST",
             headers: {
                 // Authorization: `Bearer ${realtoken}`,

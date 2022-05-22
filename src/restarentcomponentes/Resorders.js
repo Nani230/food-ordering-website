@@ -1,3 +1,4 @@
+import { baseURL } from "../App";
 import { useEffect, useRef, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
@@ -35,7 +36,7 @@ function Resorders() {
     useEffect(() => {
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
-        fetch(`http://localhost:8000/order/resorders/${prams.current.id}`, {
+        fetch(`${baseURL}/order/resorders/${prams.current.id}`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
@@ -47,12 +48,9 @@ function Resorders() {
                 console.log(data);
                 setitems(data.data);
             });
-        fetch(
-            `http://localhost:8000/restaurantuser/allresturent/${prams.current.id}`,
-            {
-                method: "GET",
-            }
-        )
+        fetch(`${baseURL}/restaurantuser/allresturent/${prams.current.id}`, {
+            method: "GET",
+        })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -132,7 +130,7 @@ function Resorders() {
         let realtoken = token.token;
         console.log(users);
 
-        fetch("http://localhost:8000/order/changeStatus/" + dataid, {
+        fetch(`${baseURL}/order/changeStatus/` + dataid, {
             method: "PUT",
             headers: {
                 Authorization: `Bearer ${realtoken}`,

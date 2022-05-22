@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { baseURL } from "../App";
 
 function Reslogin() {
     let navigate = useNavigate();
@@ -15,7 +16,7 @@ function Reslogin() {
         if ((user.username === undefined) & (user.password === undefined)) {
             console.log("something is wrong");
         } else {
-            fetch("http://localhost:8000/restaurantuser/login", {
+            fetch(`${baseURL}/restaurantuser/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -77,7 +78,7 @@ function Reslogin() {
                                 }}
                             />
 
-                            <div className="reg-btns">
+                            <div className="login-btns">
                                 <Link to={"/resturentregister"}>
                                     <button className="reg-sign-btn">
                                         Register

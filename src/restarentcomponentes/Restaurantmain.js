@@ -1,3 +1,4 @@
+import { baseURL } from "../App";
 import { useEffect, useRef, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
@@ -31,27 +32,20 @@ function Restaurantmain() {
     useEffect(() => {
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
-        fetch(
-            `http://localhost:8000/restaurantuser/items/${prams.current.id}`,
-            {
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${realtoken}`,
-                },
-            }
-        )
+        fetch(`${baseURL}/restaurantuser/items/${prams.current.id}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${realtoken}`,
+            },
+        })
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
                 setcart(data);
             });
-
-        fetch(
-            `http://localhost:8000/restaurantuser/allresturent/${prams.current.id}`,
-            {
-                method: "GET",
-            }
-        )
+        fetch(`${baseURL}/restaurantuser/allresturent/${prams.current.id}`, {
+            method: "GET",
+        })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -121,7 +115,7 @@ function Restaurantmain() {
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
 
-        fetch(`http://localhost:8000/restaurantuser/items/${id}`, {
+        fetch(`${baseURL}/restaurantuser/items/${id}`, {
             method: "PUT",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
@@ -150,7 +144,7 @@ function Restaurantmain() {
         console.log(users.get("image"));
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
-        fetch(`http://localhost:8000/restaurantuser/createItem`, {
+        fetch(`${baseURL}/restaurantuser/createItem`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
@@ -178,7 +172,7 @@ function Restaurantmain() {
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
 
-        fetch(`http://localhost:8000/restaurantuser/items/${id}`, {
+        fetch(`${baseURL}/restaurantuser/items/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
@@ -204,7 +198,7 @@ function Restaurantmain() {
             })
             .catch((err) => console.log(err));
     }
-    console.log(name + "nani");
+    console.log(name);
     return (
         <div className="restauret-main">
             <div className="restarent-navbar">
