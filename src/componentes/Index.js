@@ -180,7 +180,7 @@ function Index() {
                                 <div>
                                     <img
                                         className="poster mobile-poster "
-                                        src={`http://localhost:8000/restaurantuser/resImage/${data.posterurl}`}
+                                        src={`${baseURL}/restaurantuser/resImage/${data.posterurl}`}
                                         alt=""
                                     />
                                 </div>
