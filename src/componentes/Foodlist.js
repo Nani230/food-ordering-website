@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { MdClose, MdCall, MdLocationOn } from "react-icons/md";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
+import { baseURL } from "../App";
 
 // this for landing page  with out any login
 
@@ -40,23 +41,17 @@ function Foodlist() {
     // this is useEffect used for fech all food items. noneuser Selected Restaurent
     useEffect(() => {
         let token = JSON.parse(localStorage.getItem("resdetails"));
-        fetch(
-            `http://localhost:8000/restaurantuser/allresturent/${prams.current.id}`,
-            {
-                method: "GET",
-            }
-        )
+        fetch(`${baseURL}/restaurantuser/allresturent/${prams.current.id}`, {
+            method: "GET",
+        })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 sethotal(data);
             });
-        fetch(
-            `http://localhost:8000/restaurantuser/items/${prams.current.id}`,
-            {
-                method: "GET",
-            }
-        )
+        fetch(`${baseURL}/restaurantuser/items/${prams.current.id}`, {
+            method: "GET",
+        })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);

@@ -1,3 +1,4 @@
+import { baseURL } from "../App";
 import { useEffect, useRef, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { MdClose, MdCall, MdLocationOn } from "react-icons/md";
@@ -91,30 +92,24 @@ function Userfoodlist() {
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
 
-        fetch(
-            `http://localhost:8000/restaurantuser/allresturent/${prams.current.id}`,
-            {
-                method: "GET",
-            }
-        )
+        fetch(`${baseURL}/restaurantuser/allresturent/${prams.current.id}`, {
+            method: "GET",
+        })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 sethotal(data);
             });
 
-        fetch(
-            `http://localhost:8000/restaurantuser/items/${prams.current.id}`,
-            {
-                method: "GET",
-            }
-        )
+        fetch(`${baseURL}/restaurantuser/items/${prams.current.id}`, {
+            method: "GET",
+        })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 setitems(data);
             });
-        fetch("http://localhost:8000/cart/addres/" + datas.id, {
+        fetch(`${baseURL}/cart/addres/` + datas.id, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
@@ -146,7 +141,7 @@ function Userfoodlist() {
     function addres() {
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
-        fetch(`http://localhost:8000/cart/addres/${datas.id}`, {
+        fetch(`${baseURL}/cart/addres/${datas.id}`, {
             method: "put",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
@@ -164,7 +159,7 @@ function Userfoodlist() {
     function cart() {
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
-        fetch(`http://localhost:8000/cart/addItem`, {
+        fetch(`${baseURL}/cart/addItem`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
@@ -191,7 +186,7 @@ function Userfoodlist() {
     function order() {
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
-        fetch(`http://localhost:8000/order/create/${datas.id}`, {
+        fetch(`${baseURL}/order/create/${datas.id}`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${realtoken}`,

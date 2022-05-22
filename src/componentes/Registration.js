@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { baseURL } from "../App";
 
 function Registration() {
     // useStates
@@ -17,7 +18,7 @@ function Registration() {
 
             // console.log(users)
 
-            fetch("http://localhost:8000/user/register", {
+            fetch(`${baseURL}/user/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

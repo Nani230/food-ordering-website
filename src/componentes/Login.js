@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { baseURL } from "../App";
 
 function Login() {
     // this is useState
@@ -21,7 +22,7 @@ function Login() {
         if ((user.password === undefined) & (user.mobile === undefined)) {
             console.log("comething is wrong");
         } else {
-            fetch("http://localhost:8000/user/login", {
+            fetch(`${baseURL}/user/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -87,7 +88,7 @@ function Login() {
                                     readvalue("password", event.target.value);
                                 }}
                             />
-                            <div className="reg-btns login-btns">
+                            <div className="login-btns">
                                 <Link to={"/register"}>
                                     <button className="reg-sign-btn">
                                         Register

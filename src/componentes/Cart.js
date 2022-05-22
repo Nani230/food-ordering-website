@@ -5,6 +5,8 @@ import { MdClose, MdCall, MdLocationOn } from "react-icons/md";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaRupeeSign } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
+import { baseURL } from "../App";
+
 function Cart() {
     // user localstorage
     let datas = JSON.parse(localStorage.getItem("details"));
@@ -100,7 +102,7 @@ function Cart() {
         console.log(cartupdates);
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
-        fetch(`http://localhost:8000/cart/getitem/${id}`, {
+        fetch(`${baseURL}/cart/getitem/${id}`, {
             method: "put",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
@@ -123,7 +125,7 @@ function Cart() {
         console.log(addresuser);
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
-        fetch(`http://localhost:8000/cart/addres/${datas.id}`, {
+        fetch(`${baseURL}/cart/addres/${datas.id}`, {
             method: "put",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
@@ -155,7 +157,7 @@ function Cart() {
     useEffect(() => {
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
-        fetch("http://localhost:8000/cart/getitem/" + prams.current.id, {
+        fetch(`${baseURL}/cart/getitem/` + prams.current.id, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
@@ -170,7 +172,7 @@ function Cart() {
             })
             .catch((err) => console.log(err));
 
-        fetch("http://localhost:8000/cart/addres/" + datas.id, {
+        fetch(`${baseURL}/cart/addres/` + datas.id, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
@@ -201,7 +203,7 @@ function Cart() {
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
 
-        fetch(`http://localhost:8000/cart/delete/${id}`, {
+        fetch(`${baseURL}/cart/delete/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${realtoken}`,
@@ -229,7 +231,7 @@ function Cart() {
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
 
-        fetch(`http://localhost:8000/cart/checkout`, {
+        fetch(`${baseURL}/cart/checkout`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${realtoken}`,

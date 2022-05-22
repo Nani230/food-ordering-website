@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { MdClose, MdCall, MdLocationOn } from "react-icons/md";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaRupeeSign } from "react-icons/fa";
+import { baseURL } from "../App";
 
 import { GrMail } from "react-icons/gr";
 function Pastorders() {
@@ -60,7 +61,7 @@ function Pastorders() {
     useEffect(() => {
         let token = JSON.parse(localStorage.getItem("details"));
         let realtoken = token.token;
-        fetch(`http://localhost:8000/order/orders/${prams.current.id}`, {
+        fetch(`${baseURL}/order/orders/${prams.current.id}`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${realtoken}`,

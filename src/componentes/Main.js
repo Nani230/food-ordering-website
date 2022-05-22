@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdClose, MdCall, MdLocationOn } from "react-icons/md";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
+import { baseURL } from "../App";
+
 function Main() {
     // this is navigate to navigate on tto another
     let navigate = useNavigate();
@@ -45,7 +47,7 @@ function Main() {
     console.log(data);
     // useEffect to fech all restaurant
     useEffect(() => {
-        fetch("http://localhost:8000/restaurantuser/allresturent", {
+        fetch(`${baseURL}/restaurantuser/allresturent`, {
             method: "GET",
         })
             .then((res) => res.json())
