@@ -356,7 +356,7 @@ function Cart() {
                                     <div>
                                         <img
                                             className="poster cart-poster"
-                                            src={`${baseURL}/restaurantuser/foodImage/${data.foodItem.posterurl}`}
+                                            src={`http://localhost:8000/restaurantuser/foodImage/${data.foodItem.posterurl}`}
                                             alt=""
                                         />
                                     </div>
@@ -466,7 +466,7 @@ function Cart() {
                             }}
                         />
                         <input
-                            className="logininput3"
+                            className="logininput3 logininput33"
                             // defaultValue={datas.price}
                             type="text"
                             placeholder="add addres"
@@ -476,7 +476,7 @@ function Cart() {
                             }}
                         />
                     </div>
-                    <div className="reg-btns">
+                    <div className="reg-btnss">
                         <button
                             onClick={addstatefalse}
                             className="reg-sign-btn updata-cancel-btn"
@@ -528,7 +528,7 @@ function Cart() {
                             </button>
                         </div>
                     </div>
-                    <div className="reg-btns">
+                    <div className="reg-btnss">
                         <button
                             onClick={statefalse}
                             className="reg-sign-btn updata-cancel-btn"

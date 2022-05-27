@@ -317,7 +317,7 @@ function Userfoodlist() {
                             <div>
                                 <img
                                     className="res-poster-url userfood-res-img"
-                                    src={`${baseURL}/restaurantuser/resImage/${data.posterurl}`}
+                                    src={`http://localhost:8000/restaurantuser/resImage/${data.posterurl}`}
                                     alt=""
                                 />
                             </div>
@@ -346,7 +346,7 @@ function Userfoodlist() {
                             }}
                         />
                         <input
-                            className="logininput3"
+                            className="logininput3 logininput33"
                             type="text"
                             placeholder="add addres"
                             defaultValue={useraddres.addres}
@@ -355,7 +355,7 @@ function Userfoodlist() {
                             }}
                         />
                     </div>
-                    <div className="reg-btns">
+                    <div className="reg-btnss">
                         <button
                             onClick={orderaddstatefalse}
                             className="reg-sign-btn updata-cancel-btn"
@@ -406,7 +406,7 @@ function Userfoodlist() {
                             </button>
                         </div>
                     </div>
-                    <div className="reg-btns">
+                    <div className="reg-btnss">
                         <button
                             onClick={addstatefalse}
                             className="reg-sign-btn updata-cancel-btn"
@@ -434,7 +434,7 @@ function Userfoodlist() {
                             <div>
                                 <img
                                     className="poster"
-                                    src={`${baseURL}/restaurantuser/foodImage/${data.posterurl}`}
+                                    src={`http://localhost:8000/restaurantuser/foodImage/${data.posterurl}`}
                                     alt=""
                                 />
                             </div>

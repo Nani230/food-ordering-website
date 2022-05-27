@@ -180,7 +180,7 @@ function Pastorders() {
                                 <div>
                                     <img
                                         className="poster cart-poster"
-                                        src={`${baseURL}/restaurantuser/foodImage/${data.foodItem.posterurl}`}
+                                        src={`http://localhost:8000/restaurantuser/foodImage/${data.foodItem.posterurl}`}
                                         alt=""
                                     />
                                 </div>
@@ -252,12 +252,10 @@ function Pastorders() {
 
                                     <div className="user-addres">
                                         <p>Name : {data.customer.name}</p>
-                                        <p>
-                                            Mobile : {data.customer.ordermobile}
-                                        </p>
+                                        <p>Mobile : {data.ordermobile}</p>
                                     </div>
                                     <p className="user-addres">
-                                        Addres : {data.customer.addres}
+                                        Addres : {data.addres}
                                     </p>
                                 </div>
                             </div>
