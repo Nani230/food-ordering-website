@@ -17,9 +17,6 @@
     width: 50%;
     height: 80vh;
 }
-.login-btns {
-    margin-top: 30px;
-}
 .register-container {
     /* padding-left: 200px; */
     /* padding-right: 200px; */
@@ -1110,6 +1107,7 @@
     margin-left: 20%;
     height: 40px;
     margin-top: 30px;
+    margin-bottom: 25px;
 }
 .cart-quantits {
     width: 550px;
@@ -1528,4 +1526,18 @@
 }
 .users-addres {
     display: none;
+}
+.login-btns {
+    margin-top: 30px;
+}
+.res-order-pen {
+    padding: 2px;
+    border: 1px solid green;
+}
+.res-order-trash {
+    padding: 2px;
+    border: 1px solid red;
+}
+.logininput33 {
+    margin-bottom: 25px;
 }
