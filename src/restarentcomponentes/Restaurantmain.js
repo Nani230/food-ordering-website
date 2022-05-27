@@ -314,7 +314,7 @@ function Restaurantmain() {
                             <div>
                                 <img
                                     className="res-poster-url"
-                                    src={`${baseURL}/restaurantuser/resImage/${data.posterurl}`}
+                                    src={`http://localhost:8000/restaurantuser/resImage/${data.posterurl}`}
                                     alt=""
                                 />
                             </div>
@@ -479,7 +479,7 @@ function Restaurantmain() {
                                 <div>
                                     <img
                                         className="poster"
-                                        src={`${baseURL}/restaurantuser/foodImage/${data.posterurl}`}
+                                        src={`http://localhost:8000/restaurantuser/foodImage/${data.posterurl}`}
                                         alt=""
                                     />
                                 </div>
