@@ -78,7 +78,7 @@ function Cart() {
         setstates(true);
         setid(id);
         console.log(resid);
-        fetch(`http://localhost:8000/restaurantuser/items/${resid}`, {
+       fetch(`${baseURL}/restaurantuser/items/${resid}`, {
             method: "get",
         })
             .then((res) => res.json())
