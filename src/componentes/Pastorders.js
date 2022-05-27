@@ -180,7 +180,7 @@ function Pastorders() {
                                 <div>
                                     <img
                                         className="poster cart-poster"
-                                        src={`http://localhost:8000/restaurantuser/foodImage/${data.foodItem.posterurl}`}
+                                        src={`${baseURL}/restaurantuser/foodImage/${data.foodItem.posterurl}`}
                                         alt=""
                                     />
                                 </div>

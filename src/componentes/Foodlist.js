@@ -191,7 +191,7 @@ function Foodlist() {
                             <div>
                                 <img
                                     className="poster"
-                                    src={`http://localhost:8000/restaurantuser/foodImage/${data.posterurl}`}
+                                    src={`${baseURL}/restaurantuser/foodImage/${data.posterurl}`}
                                     alt=""
                                 />
                             </div>
